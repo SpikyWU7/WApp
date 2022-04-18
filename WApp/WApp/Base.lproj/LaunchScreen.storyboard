@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="launchBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8JR-vv-Nvo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="launchMoon" translatesAutoresizingMaskIntoConstraints="NO" id="XFe-uX-GAB">
+                                <rect key="frame" x="122.66666666666669" y="341" width="130" height="130"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="0.094117656350135803" green="0.0" blue="0.63529413938522339" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <color key="tintColor" name="launchScreenColor"/>
+                        <constraints>
+                            <constraint firstItem="8JR-vv-Nvo" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="HEu-N1-afe"/>
+                            <constraint firstItem="XFe-uX-GAB" firstAttribute="centerX" secondItem="8JR-vv-Nvo" secondAttribute="centerX" id="OsO-5a-Pa2"/>
+                            <constraint firstItem="8JR-vv-Nvo" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="TZA-TR-vqE"/>
+                            <constraint firstItem="8JR-vv-Nvo" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="XQg-jZ-Xwi"/>
+                            <constraint firstItem="XFe-uX-GAB" firstAttribute="centerY" secondItem="8JR-vv-Nvo" secondAttribute="centerY" id="epR-tK-hvt"/>
+                            <constraint firstAttribute="bottom" secondItem="8JR-vv-Nvo" secondAttribute="bottom" id="jWq-FP-t9f"/>
+                            <constraint firstItem="XFe-uX-GAB" firstAttribute="height" secondItem="8JR-vv-Nvo" secondAttribute="height" multiplier="0.160099" id="nAc-db-54o"/>
+                            <constraint firstItem="XFe-uX-GAB" firstAttribute="width" secondItem="8JR-vv-Nvo" secondAttribute="width" multiplier="0.346667" id="tb2-2p-npT"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47.200000000000003" y="370.19704433497537"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launchBackground" width="750" height="500"/>
+        <image name="launchMoon" width="400" height="400"/>
+        <namedColor name="launchScreenColor">
+            <color red="1" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
