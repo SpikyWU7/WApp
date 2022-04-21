@@ -1,2 +1,2 @@
 # WApp
-UIKit weather app (Networking, URLSession, JSON Decoding, API calls and Core Location)
+UIKit weather app (Networking, JSON Decoding, DispatchQueue, API calls and Core Location) + Extensions/Protocols
