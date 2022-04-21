@@ -33,6 +33,9 @@
                                         <buttonConfiguration key="configuration" style="filled">
                                             <imageReference key="image" image="location.square.fill" catalog="system" symbolScale="large"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="locationPressed:" destination="kRd-Gi-R43" eventType="touchUpInside" id="615-5D-gUN"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose a city" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="f9A-km-SRu">
                                         <rect key="frame" x="41" y="0.0" width="261" height="35"/>
@@ -93,8 +96,11 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moscow" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhQ-eG-evY">
-                                <rect key="frame" x="209" y="361" width="150" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moscow" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhQ-eG-evY">
+                                <rect key="frame" x="123" y="361" width="236" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="N1H-Eq-fXW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" red="1" green="0.90196078430000004" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -119,7 +125,6 @@
                             <constraint firstAttribute="bottom" secondItem="Ccx-2l-8yZ" secondAttribute="bottom" id="hQm-JO-u83"/>
                             <constraint firstItem="Ccx-2l-8yZ" firstAttribute="leading" secondItem="DBO-2W-Ljs" secondAttribute="leading" id="k1N-03-7Mi"/>
                             <constraint firstItem="JND-cr-YuD" firstAttribute="trailing" secondItem="FHL-T2-Ui9" secondAttribute="trailing" id="l5k-yd-hcf"/>
-                            <constraint firstItem="fhQ-eG-evY" firstAttribute="width" secondItem="DBO-2W-Ljs" secondAttribute="width" multiplier="0.4" id="tuE-PB-svY"/>
                             <constraint firstItem="fhQ-eG-evY" firstAttribute="top" secondItem="J4g-nZ-wHi" secondAttribute="bottom" constant="6.3333333333333144" id="usn-jb-eAQ"/>
                         </constraints>
                     </view>
