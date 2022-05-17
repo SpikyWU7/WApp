@@ -1,80 +1,49 @@
-//
-//  ViewController.swift
-//  WApp
-//
-//  Created by Spiky WU7 on 04.04.2022.
-//
-
 import UIKit
 import CoreLocation
 
 class WeatherAppViewController: UIViewController {
     
-    //IBOutlets for functional pieces of view
-    @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var conditionImageView: UIImageView!
-    @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet private var searchTextField: UITextField!
+    @IBOutlet private var conditionImageView: UIImageView!
+    @IBOutlet private var temperatureLabel: UILabel!
+    @IBOutlet private var cityLabel: UILabel!
     
-    //Adding the WeatherManager(weather API) functionality from Model
     var weatherManager = WeatherManager()
-    
-    //getting an information about user location
     let locationManager = CLLocationManager()
-    
     var textImage: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         locationManager.delegate = self
-        //triggering user permission request
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        
         weatherManager.delegate = self
-        
-        //textfield will report back to VC about user interactions
         searchTextField.delegate = self
     }
     
-    @IBAction func locationPressed(_ sender: UIButton) {
+    @IBAction private func locationPressed(_ sender: UIButton) {
         locationManager.requestLocation()
+    }
+    
+    @IBAction private func searchButtonPressed(_ sender: UIButton) {
+        searchTextField.endEditing(true)
     }
     
 }
 
 //MARK: - UITextFieldDelegate
 
-//TextFieldDelegate for allowing the class to manage editing and validation of text, in this case, with button "Go/Return" on software keyboard
 extension WeatherAppViewController: UITextFieldDelegate {
-    //IBAction for city search text field
-    @IBAction func searchButtonPressed(_ sender: UIButton) {
-        //dismiss the keyboard after user pressed "return" or "search" button
-        searchTextField.endEditing(true)
-    }
-    
-    //asks the delegate about "return" button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.endEditing(true)
         return true
     }
     
-    //starting the validation of what the user typed
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if searchTextField.text != "" {
-            return true
-        } else {
-            searchTextField.placeholder = "Type the city name"
-            return false
-        }
+        return searchTextField.text != ""
     }
     
-    //calls when any of the textfields are done editing
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        //Use searchtextfield.text - get a city name and get a weather for that city
-        //Optionally unwrapping the searchTextField
         if let city = searchTextField.text {
             weatherManager.fetchWeather(cityName: city)
         }
@@ -102,12 +71,11 @@ extension WeatherAppViewController: WeatherManagerDelegate {
 
 extension WeatherAppViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            locationManager.stopUpdatingLocation()
-            let lat = location.coordinate.latitude
-            let lon = location.coordinate.longitude
-            weatherManager.fetchWeather(latitude: lat, longitude: lon)
-        }
+        guard let location = locations.last else { return }
+        locationManager.stopUpdatingLocation()
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        weatherManager.fetchWeather(latitude: lat, longitude: lon)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

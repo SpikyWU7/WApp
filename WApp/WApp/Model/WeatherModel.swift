@@ -1,21 +1,14 @@
-//
-//  WeatherModel.swift
-//  WApp
-//
-//  Created by Spiky WU7 on 21.04.2022.
-//
-
 import Foundation
 
 struct WeatherModel {
     let conditionId: Int
     let cityName: String
     let temperature: Double
-    //Formatting temperature label
+
     var temperatureString: String {
         return String(format: "%.1f", temperature)
     }
-    //Choosing a displayed icon based on weather id data from JSON
+
     var conditionName: String {
         switch conditionId {
         case 200...232:
