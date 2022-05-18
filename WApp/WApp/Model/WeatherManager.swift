@@ -7,9 +7,9 @@ protocol WeatherManagerDelegate {
 }
 
 struct WeatherManager {
-    let decoder = JSONDecoder()
-    let session = URLSession(configuration: .default)
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=6239fd8eaded8b87d23052847349d930&units=metric"
+    private let decoder = JSONDecoder()
+    private let session = URLSession(configuration: .default)
+    private let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=6239fd8eaded8b87d23052847349d930&units=metric"
     
     var delegate: WeatherManagerDelegate?
     
@@ -35,7 +35,7 @@ struct WeatherManager {
         performRequest(urlWeather)
     }
     
-    func performRequest(_ urlString: String) {
+    private func performRequest(_ urlString: String) {
         guard let url = URL(string: urlString) else { return }
         let task = session.dataTask(with: url) { (data, response, error) in
             if error != nil {
@@ -49,7 +49,7 @@ struct WeatherManager {
         task.resume()
     }
     
-    func parseJSON(_ weatherData: Data) -> WeatherModel? {
+    private func parseJSON(_ weatherData: Data) -> WeatherModel? {
         do {
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
             let id = decodedData.weather[0].id

@@ -1,16 +1,16 @@
 import UIKit
 import CoreLocation
 
-class WeatherAppViewController: UIViewController {
+final class WeatherAppViewController: UIViewController {
     
     @IBOutlet private var searchTextField: UITextField!
     @IBOutlet private var conditionImageView: UIImageView!
     @IBOutlet private var temperatureLabel: UILabel!
     @IBOutlet private var cityLabel: UILabel!
     
-    var weatherManager = WeatherManager()
-    let locationManager = CLLocationManager()
-    var textImage: UIImage?
+    private var weatherManager = WeatherManager()
+    private let locationManager = CLLocationManager()
+    private var textImage: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class WeatherAppViewController: UIViewController {
     
 }
 
-//MARK: - UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 
 extension WeatherAppViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -51,7 +51,7 @@ extension WeatherAppViewController: UITextFieldDelegate {
     }
 }
 
-//MARK: - WeatherManagerDelegate
+// MARK: - WeatherManagerDelegate
 
 extension WeatherAppViewController: WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
@@ -63,11 +63,10 @@ extension WeatherAppViewController: WeatherManagerDelegate {
     }
     
     func didFailWithError(error: Error) {
-        print(error)
     }
 }
 
-//MARK: - CLLocationManagerDelegate
+// MARK: - CLLocationManagerDelegate
 
 extension WeatherAppViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -79,6 +78,5 @@ extension WeatherAppViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
     }
 }
