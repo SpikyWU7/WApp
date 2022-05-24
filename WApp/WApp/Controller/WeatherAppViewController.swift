@@ -21,13 +21,17 @@ final class WeatherAppViewController: UIViewController {
         searchTextField.delegate = self
     }
     
-    @IBAction private func locationPressed(_ sender: UIButton) {
+    
+    
+    @IBAction func locationPressed() {
         locationManager.requestLocation()
     }
     
-    @IBAction private func searchButtonPressed(_ sender: UIButton) {
+    @IBAction func searchButtonPressed() {
         searchTextField.endEditing(true)
     }
+    
+        
     
 }
 
@@ -60,9 +64,6 @@ extension WeatherAppViewController: WeatherManagerDelegate {
             self.conditionImageView.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.cityName
         }
-    }
-    
-    func didFailWithError(error: Error) {
     }
 }
 

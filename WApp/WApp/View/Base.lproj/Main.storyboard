@@ -34,7 +34,7 @@
                                             <imageReference key="image" image="location.square.fill" catalog="system" symbolScale="large"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="locationPressed:" destination="kRd-Gi-R43" eventType="touchUpInside" id="615-5D-gUN"/>
+                                            <action selector="locationPressed" destination="kRd-Gi-R43" eventType="touchUpInside" id="vmA-nh-hLR"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose a city" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="f9A-km-SRu">
@@ -58,7 +58,7 @@
                                             <backgroundConfiguration key="background" image="magnifyingglass" catalog="system"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="searchButtonPressed:" destination="kRd-Gi-R43" eventType="touchUpInside" id="Q7B-ns-Rys"/>
+                                            <action selector="searchButtonPressed" destination="kRd-Gi-R43" eventType="touchUpInside" id="mGi-C3-f1X"/>
                                         </connections>
                                     </button>
                                 </subviews>
